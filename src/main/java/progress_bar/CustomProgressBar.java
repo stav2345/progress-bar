@@ -10,7 +10,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.ProgressBar;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class CustomProgressBar implements IProgressBar {
+	
+	private static final Logger LOGGER = LogManager.getLogger(CustomProgressBar.class);
 
 	private Composite parent;
 	private ProgressBar progressBar;
@@ -136,6 +141,7 @@ public class CustomProgressBar implements IProgressBar {
 			Thread.sleep(11);  
 		}
 		catch (InterruptedException e) {
+			LOGGER.error("There was a problem with the thread ", e);
 			e.printStackTrace();
 		}
 	}

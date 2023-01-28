@@ -11,6 +11,9 @@ import org.eclipse.swt.widgets.TableItem;
 
 import messages.Messages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Table used to show several processes progresses. See
  * {@link FormMultipleProgress} to get more details.
@@ -19,6 +22,8 @@ import messages.Messages;
  *
  */
 public class TableMultipleProgress {
+	
+	private static final Logger LOGGER = LogManager.getLogger(TableMultipleProgress.class);
 
 	private Composite parent;
 	private Table table;
@@ -68,7 +73,8 @@ public class TableMultipleProgress {
 		this.table.getColumn(0).pack();
 		this.table.getColumn(1).setWidth(128);
 		this.table.getColumn(2).setWidth(256);
-
+		
+		LOGGER.debug("Table row ", row);
 		return row;
 	}
 
